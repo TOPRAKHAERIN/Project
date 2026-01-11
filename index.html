@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- ตะกร้าสินค้าแบบลอย -->
+    <div class="cart-float" onclick="openModal()">
+        <span>🛒</span> ตะกร้าสินค้า (<span id="cart-count">0</span>)
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <p>ยินดีต้อนรับสู่ The Old Town Ayutthaya</p>
+            <div>📞 080-984-XXXX</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-menu">
+        <div class="container nav-container">
+            <a href="#" class="logo-link">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary-color)">
+                    <path d="M2 21h18v-2H2M20 8h-2V5h2m0-2H4v10a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-3h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+                </svg>
+                <div class="logo-text">AYUTTHAYA COFFEE</div>
+            </a>
+            <ul class="menu-list">
+                <li><a href="#" class="menu-link">หน้าแรก</a></li>
+                <li><a href="#menu" class="menu-link">เมนูแนะนำ</a></li>
+                <li><a href="#about" class="menu-link">ประวัติร้าน</a></li>
+                <li><a href="#gallery" class="menu-link">บรรยากาศ</a></li>
+                <li><a href="#contact" class="menu-link">ติดต่อเรา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-text reveal">
+                <h1>ความรื่นรมย์ <br> แห่งเมืองเก่า</h1>
+                <p>สัมผัสรสชาติกาแฟแท้ ในบรรยากาศบ้านสวนอยุธยาที่เงียบสงบและเป็นกันเอง</p>
+                <button onclick="scrollToMenu()" class="btn-hero">เริ่มสั่งอาหาร</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <div class="reveal section-header">
+                <h2 class="section-title">Signature Menu</h2>
+                <p class="section-subtitle">เมนูแนะนำที่คัดสรรเมล็ดกาแฟชั้นดี เพื่อคุณ</p>
+            </div>
+
+            <div class="menu-grid">
+                <article class="menu-card reveal">
+                    <img src="./img/ลาเต้.jpg" alt="ลาเต้">
+                    <h4>ลาเต้ ร้อน/เย็น</h4>
+                    <span class="price-tag">65.-</span><br>
+                    <button class="btn-add" onclick="addToCart('ลาเต้', 65, this)">เลือกใส่ตะกร้า</button>
+                </article>
+
+                <article class="menu-card reveal">
+                    <img src="./img/คาปูชิโน่.jpg" alt="คาปูชิโน่">
+                    <h4>คาปูชิโน่</h4>
+                    <span class="price-tag">65.-</span><br>
+                    <button class="btn-add" onclick="addToCart('คาปูชิโน่', 65, this)">เลือกใส่ตะกร้า</button>
+                </article>
+
+                <article class="menu-card reveal">
+                    <img src="./img/มอคค่า.jpg" alt="มอคค่า">
+                    <h4>มอคค่าเย็น</h4>
+                    <span class="price-tag">70.-</span><br>
+                    <button class="btn-add" onclick="addToCart('มอคค่าเย็น', 70, this)">เลือกใส่ตะกร้า</button>
+                </article>
+
+                <article class="menu-card reveal">
+                    <img src="./img/เอสเปรสโซ่.jpg" alt="เอสเปรสโซ่">
+                    <h4>เอสเปรสโซ่</h4>
+                    <span class="price-tag">55.-</span><br>
+                    <button class="btn-add" onclick="addToCart('เอสเปรสโซ่', 55, this)">เลือกใส่ตะกร้า</button>
+                </article>
+
+                <article class="menu-card reveal">
+                    <img src="./img/อเมริกาโน่.avif" alt="อเมริกาโน่">
+                    <h4>อเมริกาโน่</h4>
+                    <span class="price-tag">55.-</span><br>
+                    <button class="btn-add" onclick="addToCart('อเมริกาโน่', 55, this)">เลือกใส่ตะกร้า</button>
+                </article>
+
+                <article class="menu-card reveal">
+                    <img src="./img/มัคคิอาโต้.avif" alt="มัคคิอาโต้">
+                    <h4>มัคคิอาโต้</h4>
+                    <span class="price-tag">75.-</span><br>
+                    <button class="btn-add" onclick="addToCart('มัคคิอาโต้', 75, this)">เลือกใส่ตะกร้า</button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-container reveal">
+                <div class="about-image">
+                    <img src="./img/Cafe1.avif" alt="เกี่ยวกับร้าน">
+                </div>
+                <div class="about-text">
+                    <h2 class="about-title">เรื่องราวของเรา</h2>
+                    <p class="about-desc">ณ ใจกลางเมืองเก่าอยุธยา เราเริ่มต้นจากความหลงใหลในเมล็ดกาแฟและความรักในศิลปะวัฒนธรรมไทยเดิม ร้านของเราไม่ได้เป็นเพียงแค่ร้านกาแฟ แต่เป็นพื้นที่แห่งการพักผ่อนที่ผสมผสานกลิ่นอายประวัติศาสตร์เข้ากับรสชาติสมัยใหม่</p>
+                    <p class="about-desc">ทุกแก้วที่เราเสิร์ฟ คือความตั้งใจที่จะมอบประสบการณ์ที่ดีที่สุดให้กับคุณ ท่ามกลางบรรยากาศสวนร่มรื่นที่จะทำให้คุณลืมความวุ่นวายของโลกภายนอก</p>
+                </div>
+    </section>
+
+    <!-- Creators Section -->
+    <section id="creators" class="creators-section">
+        <div class="container reveal">
+            <h2 class="section-title">คณะผู้จัดทำ</h2>
+            <p class="section-subtitle">เบื้องหลังความอร่อยและการบริการ</p>
+
+            <div class="creators-wrapper">
+                <!-- 1. Support -->
+                <div class="creator-card">
+                    <img src="./img/Rew.img.jpg" alt="ผู้ช่วย" class="creator-img">
+                    <span class="role-badge assist">ผู้ช่วยที่ดี</span>
+                    <h3>ชื่อ-นาย ชญานินทร์ บำรุงเขต</h3>
+                    <p style="color:#777; font-size:0.9rem;">ฝ่ายสนับสนุน</p>
+                </div>
+
+                <!-- 2. Main Creator -->
+                <div class="creator-card main">
+                    <img src="./img/Top.img.jpg" alt="ผู้จัดทำ" class="creator-img">
+                    <span class="role-badge main">ผู้จัดทำ</span>
+                    <h3>ชื่อ-นาย วรพงษ์ พิมพ์ทรัพย์</h3>
+                    <p style="color:#777; font-size:0.9rem;">Project Manager</p>
+                </div>
+
+                <!-- 3. Support -->
+                <div class="creator-card">
+                    <img src="./img/Pram.img.jpg" alt="ผู้ช่วย" class="creator-img">
+                    <span class="role-badge assist">ผู้ช่วยที่ดี</span>
+                    <h3>ชื่อ-นาย สิทธิโชค จันทร์แก้ว</h3>
+                    <p style="color:#777; font-size:0.9rem;">ฝ่ายสนับสนุน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">บรรยากาศร้าน</h2>
+                <p class="section-subtitle">มุมพักผ่อนสบายๆ สไตล์ Ayutthaya Old Town</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- รูปที่ 1 -->
+                <div class="gallery-item">
+                    <img src="./img/Coffee1.avif" alt="Atmosphere 1">
+                </div>
+                <!-- รูปที่ 2 -->
+                <div class="gallery-item">
+                    <img src="./img/Coffee2.avif" alt="Atmosphere 2">
+                </div>
+                <!-- รูปที่ 3 -->
+                <div class="gallery-item">
+                    <img src="./img/Coffee3.avif" alt="Atmosphere 3">
+                </div>
+                <!-- รูปที่ 4 -->
+                <div class="gallery-item">
+                    <img src="./img/Atmosphere 1.avif" alt="Atmosphere 4">
+                </div>
+                <!-- รูปที่ 5 -->
+                <div class="gallery-item">
+                    <img src="./img/Atmosphere 2.avif" alt="Atmosphere 5">
+                </div>
+                <!-- รูปที่ 6 -->
+                <div class="gallery-item">
+                    <img src="./img/Atmosphere 3.avif" alt="Atmosphere 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Improved Design) -->
+    <section id="contact" class="contact-section">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">ติดต่อเรา</h2>
+                <p class="section-subtitle">แวะมาเยี่ยมเยียนหรือสอบถามข้อมูลเพิ่มเติม</p>
+            </div>
+            <div class="contact-grid">
+                <!-- ข้อมูลติดต่อ (ในรูปแบบการ์ด) -->
+                <div class="contact-card">
+                    <h3>ข้อมูลการติดต่อ</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon-box">📍</div>
+                        <p>123 ถนนอู่ทอง ตำบลประตูชัย <br>อำเภอพระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000</p>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon-box">📞</div>
+                        <p>080-984-XXXX</p>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon-box">💬</div>
+                        <p>Line: @ayutthayacoffee</p>
+                    </div>
+                    
+                    <div class="map-box">
+                        <img src="./img/Googlemap.avif" alt="Map" class="map-placeholder">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; color: var(--secondary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                            Google Map
+                        </div>
+                    </div>
+                </div>
+
+                <!-- แบบฟอร์มติดต่อ (ในรูปแบบการ์ด) -->
+                <div class="contact-card">
+                    <h3>ส่งข้อความถึงเรา</h3>
+                    <form onsubmit="event.preventDefault(); alert('ขอบคุณสำหรับข้อความ เราจะติดต่อกลับโดยเร็วที่สุด');">
+                        <div class="form-group">
+                            <input type="text" placeholder="ชื่อของคุณ" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="เบอร์โทรศัพท์" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="ข้อความที่ต้องการฝากถึงเรา" class="form-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn-add" style="width:100%; font-size: 1.1rem; padding: 15px;">ส่งข้อความ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section (Restored) -->
+    <div class="photo-showcase reveal">
+        <div class="photo-item"><img src="./img/Coffee1.avif"></div>
+        <div class="photo-item"><img src="./img/Coffee2.avif"></div>
+        <div class="photo-item"><img src="./img/Coffee3.avif"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Ayutthaya Coffee</h3>
+                <p style="opacity: 0.7; font-size: 0.9rem;">ผสมผสานความร่วมสมัยและประวัติศาสตร์</p>
+            </div>
+            <div>
+                <h4 style="color: var(--primary-color); margin-bottom: 15px;">เวลาเปิดทำการ</h4>
+                <p style="opacity: 0.7; font-size: 0.9rem;">📍 พระนครศรีอยุธยา<br>🕒 08:30 - 18:00 น.</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 50px; opacity: 0.3; font-size: 0.75rem;">&copy; 2024 Ayutthaya Coffee Shop.</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px; color: var(--secondary-color);">รายการสั่งซื้อ</h2>
+            <div id="order-items">
+                <p style="text-align: center; color: #999;">ยังไม่มีสินค้าในตะกร้า</p>
+            </div>
+            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
+                    <span>รวมทั้งหมด:</span>
+                    <span><span id="total-price">0</span>.-</span>
+                </div>
+                <button onclick="confirmOrder()" style="width: 100%; padding: 15px; background: var(--secondary-color); color: white; border: none; border-radius: 10px; margin-top: 20px; cursor: pointer; font-weight: bold;">ยืนยันการสั่งซื้อ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/Main.js"></script>
+</body>
+</html>
