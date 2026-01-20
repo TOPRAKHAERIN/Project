@@ -31,16 +31,16 @@
                 </svg>
                 <div class="logo-text">AYUTTHAYA COFFEE</div>
             </a>
-            <ul class="menu-list">
+            <ul class="menu-class">
                 <li><a href="#" class="menu-link">หน้าแรก</a></li>
                 <li><a href="#menu" class="menu-link">เมนูแนะนำ</a></li>
                 <li><a href="#about" class="menu-link">ประวัติร้าน</a></li>
                 <li><a href="#gallery" class="menu-link">บรรยากาศ</a></li>
                 <li><a href="#contact" class="menu-link">ติดต่อเรา</a></li>
+                
             </ul>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
@@ -53,56 +53,48 @@
     </header>
 
     <!-- Menu Section -->
-    <section id="menu">
-        <div class="container">
-            <div class="reveal section-header">
-                <h2 class="section-title">Signature Menu</h2>
-                <p class="section-subtitle">เมนูแนะนำที่คัดสรรเมล็ดกาแฟชั้นดี เพื่อคุณ</p>
-            </div>
-
-            <div class="menu-grid">
-                <article class="menu-card reveal">
-                    <img src="./img/ลาเต้.jpg" alt="ลาเต้">
-                    <h4>ลาเต้ ร้อน/เย็น</h4>
-                    <span class="price-tag">65.-</span><br>
-                    <button class="btn-add" onclick="addToCart('ลาเต้', 65, this)">เลือกใส่ตะกร้า</button>
-                </article>
-
-                <article class="menu-card reveal">
-                    <img src="./img/คาปูชิโน่.jpg" alt="คาปูชิโน่">
-                    <h4>คาปูชิโน่</h4>
-                    <span class="price-tag">65.-</span><br>
-                    <button class="btn-add" onclick="addToCart('คาปูชิโน่', 65, this)">เลือกใส่ตะกร้า</button>
-                </article>
-
-                <article class="menu-card reveal">
-                    <img src="./img/มอคค่า.jpg" alt="มอคค่า">
-                    <h4>มอคค่าเย็น</h4>
-                    <span class="price-tag">70.-</span><br>
-                    <button class="btn-add" onclick="addToCart('มอคค่าเย็น', 70, this)">เลือกใส่ตะกร้า</button>
-                </article>
-
-                <article class="menu-card reveal">
-                    <img src="./img/เอสเปรสโซ่.jpg" alt="เอสเปรสโซ่">
-                    <h4>เอสเปรสโซ่</h4>
-                    <span class="price-tag">55.-</span><br>
-                    <button class="btn-add" onclick="addToCart('เอสเปรสโซ่', 55, this)">เลือกใส่ตะกร้า</button>
-                </article>
-
-                <article class="menu-card reveal">
-                    <img src="./img/อเมริกาโน่.avif" alt="อเมริกาโน่">
-                    <h4>อเมริกาโน่</h4>
-                    <span class="price-tag">55.-</span><br>
-                    <button class="btn-add" onclick="addToCart('อเมริกาโน่', 55, this)">เลือกใส่ตะกร้า</button>
-                </article>
-
-                <article class="menu-card reveal">
-                    <img src="./img/มัคคิอาโต้.avif" alt="มัคคิอาโต้">
-                    <h4>มัคคิอาโต้</h4>
-                    <span class="price-tag">75.-</span><br>
-                    <button class="btn-add" onclick="addToCart('มัคคิอาโต้', 75, this)">เลือกใส่ตะกร้า</button>
-                </article>
-            </div>
+    <section class="menu-section">
+        <section id="menu" class="menu-section"></section>
+        <h2 class="section-title">Our Menu</h2>
+        <div class="section-content">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <img src="/img/ลาเต้1.png" alt="Coffee" class="menu-images">
+                    <h3 class="name">Coffee</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+                <li class="menu-item">
+                    <img src="/img/น้ำปั่น.png" alt="Smoothies" class="menu-images">
+                    <h3 class="name">Smoothies</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+                <li class="menu-item">
+                    <img src="/img/Cake.png" alt="Cake" class="menu-images">
+                    <h3 class="name">Cake</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+                <li class="menu-item">
+                    <img src="/img/ชาไทย.png" alt="Non-Coffee Drinks" class="menu-images">
+                    <h3 class="name">Non-Coffee Drinks</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+                <li class="menu-item">
+                    <img src="/img/ครัวซอง.png" alt="Bakery" class="menu-images">
+                    <h3 class="name">Bakery</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+                <li class="menu-item">
+                    <img src="/img/แฮมเบอร์เกอร์.png" alt="Snacks" class="menu-images">
+                    <h3 class="name">Snacks</h3>
+                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
+                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -284,6 +276,8 @@
         </div>
     </div>
 
-    <script src="../js/Main.js"></script>
+    
+
+    <script src="../js/main.js"></script>
 </body>
 </html>
