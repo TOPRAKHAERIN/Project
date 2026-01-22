@@ -1,51 +1,51 @@
 const menuData = {
-            'Coffee': [
-                { id: 101, name: 'ลาเต้ (Latte)', price: 65, img: 'img/Latte.png' },
-                { id: 102, name: 'อเมริกาโน่ (Americano)', price: 55, img: 'img/Americano.png' },
-                { id: 103, name: 'คาปูชิโน่ (Cappuccino)', price: 70, img: 'img/Cappuccino.png' },
-                { id: 104, name: 'เอสเพรสโซ่ (Espresso)', price: 50, img: 'img/Espresso.png' },
-                { id: 105, name: 'มอคค่า (Mocha)', price: 75, img: 'img/Mocha.png' },
-                { id: 106, name: 'คาราเมลมัคคิอาโต้ (Caramel Macchiato)', price: 80, img: 'img/Caramel Macchiato.png' }
+            'coffee': [
+                { id: 101, name: 'ลาเต้ (latte)', price: 65, img: 'img/latte.png' },
+                { id: 102, name: 'อเมริกาโน่ (americano)', price: 55, img: 'img/americano.png' },
+                { id: 103, name: 'คาปูชิโน่ (cappuccino)', price: 70, img: 'img/cappuccino.png' },
+                { id: 104, name: 'เอสเพรสโซ่ (espresso)', price: 50, img: 'img/espresso.png' },
+                { id: 105, name: 'มอคค่า (mocha)', price: 75, img: 'img/mocha.png' },
+                { id: 106, name: 'คาราเมลมัคคิอาโต้ (caramel macchiato)', price: 80, img: 'img/caramelmacchiato.png' }
             ],
-            'Smoothies': [
-                { id: 201, name: 'สตรอเบอร์รี่โยเกิร์ต (Strawberry Smoothie)', price: 80, img: 'img/Strawberry Smoothie.png' },
-                { id: 202, name: 'มะม่วงปั่น (Mango Smoothie)', price: 75, img: 'img/Mango Smoothie.png' },
-                { id: 203, name: 'มัทฉะสมูทตี้ (Matcha Smoothie.png)', price: 70, img: 'img/Matcha Smoothie.png' },
-                { id: 204, name: 'กล้วยปั่นนมสด (Banana Smoothiev)', price: 70, img: 'img/Banana Smoothiev.png' },
-                { id: 205, name: 'ช็อกโกแลตสมูทตี้ (Chocolate Smoothie)', price: 75, img: 'img/Chocolate Smoothie.png' },
-                { id: 206, name: 'บลูเบอร์รี่สมูทตี้ (Mixed Berry Smoothie)', price: 85, img: 'img/Mixed Berry Smoothie.png' }
+            'smoothies': [
+                { id: 201, name: 'สตรอเบอร์รี่โยเกิร์ต (strawberrysmoothie)', price: 80, img: 'img/strawberrysmoothie.png' },
+                { id: 202, name: 'มะม่วงปั่น (mangosmoothie)', price: 75, img: 'img/mangosmoothie.png' },
+                { id: 203, name: 'มัทฉะสมูทตี้ (matchasmoothie)', price: 70, img: 'img/matchasmoothie.png' },
+                { id: 204, name: 'กล้วยปั่นนมสด (bananasmoothie)', price: 70, img: 'img/bananasmoothiev.png' },
+                { id: 205, name: 'ช็อกโกแลตสมูทตี้ (chocolatesmoothie)', price: 75, img: 'img/chocolatesmoothie.png' },
+                { id: 206, name: 'บลูเบอร์รี่สมูทตี้ (mixedberrysmoothie)', price: 85, img: 'img/mixedberrysmoothie.png' }
             ],
-            'Cake': [
-                { id: 301, name: 'ช็อกโกแลตเค้ก (Chocolate Cake)', price: 95, img: 'img/Chocolate Cake.png' },
-                { id: 302, name: 'สตรอว์เบอร์รีชอร์ตเค้ก (Strawberry Shortcake)', price: 120, img: 'img/Strawberry Shortcake.png' },
-                { id: 303, name: 'ชีสเค้ก (Cheesecake.png)', price: 100, img: 'img/Cheesecake.png' },
-                { id: 304, name: 'แครอทเค้ก (Carrot Cake)', price: 65, img: 'img/Carrot Cake.png' },
-                { id: 305, name: 'เรดเวลเวทเค้ก (Red Velvet Cake)', price: 110, img: 'img/Red Velvet Cake.png' },
-                { id: 306, name: 'มัทฉะเค้ก (Matcha Cake)', price: 95, img: 'img/Matcha Cake.png' }
+            'cake': [
+                { id: 301, name: 'ช็อกโกแลตเค้ก (chocolatecake)', price: 95, img: 'img/chocolatecake.png' },
+                { id: 302, name: 'สตรอว์เบอร์รีชอร์ตเค้ก (strawberry shortcake)', price: 120, img: 'img/strawberryshortcake.png' },
+                { id: 303, name: 'ชีสเค้ก (cheesecake)', price: 100, img: 'img/cheesecake.png' },
+                { id: 304, name: 'แครอทเค้ก (carrotcake)', price: 65, img: 'img/carrotcake.png' },
+                { id: 305, name: 'เรดเวลเวทเค้ก (redvelvet cake)', price: 110, img: 'img/redvelvetcake.png' },
+                { id: 306, name: 'มัทฉะเค้ก (matchacake)', price: 95, img: 'img/matchacake.png' }
             ],
-            'Non-Coffee Drinks': [
-                { id: 401, name: 'ชาไทยนม (Thai Milk Tea)', price: 60, img: 'img/Thai Milk Tea.png' },
-                { id: 402, name: 'ชาเขียวมัทฉะ (Matcha Latte)', price: 70, img: 'img/Matcha Latte (2).png' },
-                { id: 403, name: 'ช็อกโกแลตนม (Chocolate Milk)', price: 65, img: 'img/Chocolate Milk.png' },
-                { id: 404, name: 'น้ำผึ้งมะนาว (Honey Lemon)', price: 55, img: 'img/Honey Lemon.png' },
-                { id: 405, name: 'พีชที (Peach Tea)', price: 55, img: 'img/Peach Tea.png' },
-                { id: 406, name: 'นมสด (Fresh Milk)', price: 60, img: 'img/Fresh Milk.png' }
+            'non-coffeedrinks': [
+                { id: 401, name: 'ชาไทยนม (thaimilktea)', price: 60, img: 'img/thaimilktea.png' },
+                { id: 402, name: 'ชาเขียวมัทฉะ (matchalatte)', price: 70, img: 'img/matchalatte.png' },
+                { id: 403, name: 'ช็อกโกแลตนม (chocolatemilk)', price: 65, img: 'img/chocolatemilk.png' },
+                { id: 404, name: 'น้ำผึ้งมะนาว (honeylemon)', price: 55, img: 'img/honeylemon.png' },
+                { id: 405, name: 'พีชที (peachtea)', price: 55, img: 'img/peachtea.png' },
+                { id: 406, name: 'นมสด (freshmilk)', price: 60, img: 'img/freshmilk.png' }
             ],
-            'Bakery': [
-                { id: 501, name: 'ครัวซองต์ (Croissant)', price: 55, img: 'img/Croissant.png' },
-                { id: 502, name: 'ครัวซองต์เนยสด (Butter Croissant)', price: 45, img: 'img/Butter Croissantt.png' },
-                { id: 503, name: 'ครัวซองต์ช็อกโกแลต (Chocolate Croissant)', price: 40, img: 'img/Chocolate Croissant.png' },
-                { id: 504, name: 'บลูเบอร์รีมัฟฟิน (Blueberry Muffin)', price: 50, img: 'img/Blueberry Muffin.png' },
-                { id: 505, name: 'ขนมปังกล้วย (Banana Bread)', price: 85, img: 'img/Banana Bread.png' },
-                { id: 506, name: 'ขนมปังกระเทียม (Garlic Bread)', price: 60, img: 'img/Garlic Bread.png' }
+            'bakery': [
+                { id: 501, name: 'ครัวซองต์ (croissant)', price: 55, img: 'img/croissant.png' },
+                { id: 502, name: 'ครัวซองต์เนยสด (buttercroissant)', price: 45, img: 'img/buttercroissant.png' },
+                { id: 503, name: 'ครัวซองต์ช็อกโกแลต (chocolatecroissant)', price: 40, img: 'img/chocolatecroissant.png' },
+                { id: 504, name: 'บลูเบอร์รีมัฟฟิน (blueberrymuffin)', price: 50, img: 'img/blueberrymuffin.png' },
+                { id: 505, name: 'ขนมปังกล้วย (bananabread)', price: 85, img: 'img/bananabread.png' },
+                { id: 506, name: 'ขนมปังกระเทียม (garlicbread)', price: 60, img: 'img/garlicbread.png' }
             ],
-            'Snacks': [
-                { id: 601, name: 'เฟรนช์ฟรายส์ (French Fries)', price: 69, img: 'img/French Fries.png' },
-                { id: 602, name: 'นักเก็ตไก่ (Chicken Nuggets)', price: 79, img: 'img/Chicken Nuggets.png' },
-                { id: 603, name: 'ไส้กรอก (Sausage)', price: 89, img: 'img/Sausage.png' },
-                { id: 604, name: 'หอมทอด (Onion Rings)', price: 89, img: 'img/Onion Rings.png' },
-                { id: 605, name: 'ขนมปังปิ้ง (Toast)', price: 69, img: 'img/Toast.png' },
-                { id: 606, name: 'ชีสบอล (Cheese Balls)', price: 79, img: 'img/Cheese Balls.png' }
+            'snacks': [
+                { id: 601, name: 'เฟรนช์ฟรายส์ (frenchfries)', price: 69, img: 'img/frenchfries.png' },
+                { id: 602, name: 'นักเก็ตไก่ (chickennuggets)', price: 79, img: 'img/chickennuggets.png' },
+                { id: 603, name: 'ไส้กรอก (sausage)', price: 89, img: 'img/sausage.png' },
+                { id: 604, name: 'หอมทอด (onionrings)', price: 89, img: 'img/onionrings.png' },
+                { id: 605, name: 'ขนมปังปิ้ง (toast)', price: 69, img: 'img/toast.png' },
+                { id: 606, name: 'ชีสบอล (cheeseballs)', price: 79, img: 'img/cheeseballs.png' }
             ]
         };
 
