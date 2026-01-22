@@ -1,24 +1,316 @@
-let cart = [];
+const menuData = {
+            'Coffee': [
+                { id: 101, name: 'ลาเต้ (Latte)', price: 65, img: 'img/Latte.png' },
+                { id: 102, name: 'อเมริกาโน่ (Americano)', price: 55, img: 'img/Americano.png' },
+                { id: 103, name: 'คาปูชิโน่ (Cappuccino)', price: 70, img: 'img/Cappuccino.png' },
+                { id: 104, name: 'เอสเพรสโซ่ (Espresso)', price: 50, img: 'img/Espresso.png' },
+                { id: 105, name: 'มอคค่า (Mocha)', price: 75, img: 'img/Mocha.png' },
+                { id: 106, name: 'คาราเมลมัคคิอาโต้ (Caramel Macchiato)', price: 80, img: 'img/Caramel Macchiato.png' }
+            ],
+            'Smoothies': [
+                { id: 201, name: 'สตรอเบอร์รี่โยเกิร์ต (Strawberry Smoothie)', price: 80, img: 'img/Strawberry Smoothie.png' },
+                { id: 202, name: 'มะม่วงปั่น (Mango Smoothie)', price: 75, img: 'img/Mango Smoothie.png' },
+                { id: 203, name: 'มัทฉะสมูทตี้ (Matcha Smoothie.png)', price: 70, img: 'img/Matcha Smoothie.png' },
+                { id: 204, name: 'กล้วยปั่นนมสด (Banana Smoothiev)', price: 70, img: 'img/Banana Smoothiev.png' },
+                { id: 205, name: 'ช็อกโกแลตสมูทตี้ (Chocolate Smoothie)', price: 75, img: 'img/Chocolate Smoothie.png' },
+                { id: 206, name: 'บลูเบอร์รี่สมูทตี้ (Mixed Berry Smoothie)', price: 85, img: 'img/Mixed Berry Smoothie.png' }
+            ],
+            'Cake': [
+                { id: 301, name: 'ช็อกโกแลตเค้ก (Chocolate Cake)', price: 95, img: 'img/Chocolate Cake.png' },
+                { id: 302, name: 'สตรอว์เบอร์รีชอร์ตเค้ก (Strawberry Shortcake)', price: 120, img: 'img/Strawberry Shortcake.png' },
+                { id: 303, name: 'ชีสเค้ก (Cheesecake.png)', price: 100, img: 'img/Cheesecake.png' },
+                { id: 304, name: 'แครอทเค้ก (Carrot Cake)', price: 65, img: 'img/Carrot Cake.png' },
+                { id: 305, name: 'เรดเวลเวทเค้ก (Red Velvet Cake)', price: 110, img: 'img/Red Velvet Cake.png' },
+                { id: 306, name: 'มัทฉะเค้ก (Matcha Cake)', price: 95, img: 'img/Matcha Cake.png' }
+            ],
+            'Non-Coffee Drinks': [
+                { id: 401, name: 'ชาไทยนม (Thai Milk Tea)', price: 60, img: 'img/Thai Milk Tea.png' },
+                { id: 402, name: 'ชาเขียวมัทฉะ (Matcha Latte)', price: 70, img: 'img/Matcha Latte (2).png' },
+                { id: 403, name: 'ช็อกโกแลตนม (Chocolate Milk)', price: 65, img: 'img/Chocolate Milk.png' },
+                { id: 404, name: 'น้ำผึ้งมะนาว (Honey Lemon)', price: 55, img: 'img/Honey Lemon.png' },
+                { id: 405, name: 'พีชที (Peach Tea)', price: 55, img: 'img/Peach Tea.png' },
+                { id: 406, name: 'นมสด (Fresh Milk)', price: 60, img: 'img/Fresh Milk.png' }
+            ],
+            'Bakery': [
+                { id: 501, name: 'ครัวซองต์ (Croissant)', price: 55, img: 'img/Croissant.png' },
+                { id: 502, name: 'ครัวซองต์เนยสด (Butter Croissant)', price: 45, img: 'img/Butter Croissantt.png' },
+                { id: 503, name: 'ครัวซองต์ช็อกโกแลต (Chocolate Croissant)', price: 40, img: 'img/Chocolate Croissant.png' },
+                { id: 504, name: 'บลูเบอร์รีมัฟฟิน (Blueberry Muffin)', price: 50, img: 'img/Blueberry Muffin.png' },
+                { id: 505, name: 'ขนมปังกล้วย (Banana Bread)', price: 85, img: 'img/Banana Bread.png' },
+                { id: 506, name: 'ขนมปังกระเทียม (Garlic Bread)', price: 60, img: 'img/Garlic Bread.png' }
+            ],
+            'Snacks': [
+                { id: 601, name: 'เฟรนช์ฟรายส์ (French Fries)', price: 69, img: 'img/French Fries.png' },
+                { id: 602, name: 'นักเก็ตไก่ (Chicken Nuggets)', price: 79, img: 'img/Chicken Nuggets.png' },
+                { id: 603, name: 'ไส้กรอก (Sausage)', price: 89, img: 'img/Sausage.png' },
+                { id: 604, name: 'หอมทอด (Onion Rings)', price: 89, img: 'img/Onion Rings.png' },
+                { id: 605, name: 'ขนมปังปิ้ง (Toast)', price: 69, img: 'img/Toast.png' },
+                { id: 606, name: 'ชีสบอล (Cheese Balls)', price: 79, img: 'img/Cheese Balls.png' }
+            ]
+        };
 
-        function addToCart(name, price, btnElement) {
+        // ตัวแปรเก็บตะกร้าสินค้า
+        let cart = [];
+        
+        // ข้อมูลรีวิว (Mock Data ตัวอย่างให้ดูว่ามีคนรีวิวแล้ว)
+        // ** รักษาข้อมูลชุดนี้ไว้ตามคำขอ **
+        const defaultReviews = {
+            101: [
+                { user: 'คุณสมชาย', rating: 5, text: 'กาแฟหอมมาก บรรยากาศดีสุดๆ แนะนำครับ' },
+                { user: 'Nancy J.', rating: 5, text: 'Best Latte in Ayutthaya!' }
+            ],
+            302: [{ user: 'CheeseFan', rating: 5, text: 'ชีสเค้กละลายในปากสุดๆ' }]
+        };
+
+        // โหลดรีวิวจาก LocalStorage ถ้าไม่มีให้ใช้ข้อมูลตัวอย่าง
+        let reviews = JSON.parse(localStorage.getItem('shopReviews'));
+        if (!reviews || Object.keys(reviews).length === 0) {
+            reviews = defaultReviews;
+        }
+
+        // เก็บสินค้าที่เลือกดูอยู่ปัจจุบัน
+        let currentSelectedProduct = null;
+
+        // ==========================================
+        // ส่วนที่ 2: ฟังก์ชันการทำงาน (LOGIC)
+        // ==========================================
+
+        // เลื่อนหน้าจอไปที่ส่วนเมนู
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- จัดการ Modal หมวดหมู่ ---
+        
+        // เปิดหน้าต่างเลือกเมนูตามหมวดหมู่
+        function openCategoryModal(categoryName) {
+            const modal = document.getElementById('categoryModal');
+            const title = document.getElementById('modal-category-title');
+            const listContainer = document.getElementById('product-list-container');
+            const detailView = document.getElementById('product-detail-view');
+
+            // รีเซ็ตการแสดงผล: โชว์รายการ, ซ่อนรายละเอียด
+            listContainer.style.display = 'grid';
+            detailView.style.display = 'none';
+            title.innerText = categoryName;
+
+            // ล้างข้อมูลเก่า
+            listContainer.innerHTML = '';
+            
+            // ดึงข้อมูลเมนูในหมวดนั้นๆ
+            const items = menuData[categoryName] || [];
+
+            if (items.length === 0) {
+                listContainer.innerHTML = '<p style="text-align:center; color:#999; grid-column: 1/-1;">ยังไม่มีเมนูในหมวดนี้</p>';
+            }
+
+            // วนลูปสร้างการ์ดสินค้า
+            items.forEach(item => {
+                const stats = calculateRating(item.id);
+                const starHtml = generateStarHtml(stats.average);
+                
+                listContainer.innerHTML += `
+                    <div class="product-card" onclick="openProductDetail(${item.id}, '${categoryName}')">
+                        <div class="product-img-wrapper">
+                            <img src="${item.img}" class="product-img" onerror="this.src='https://placehold.co/300?text=No+Image'">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">${item.name}</div>
+                            <div class="stars-display">${starHtml} <span class="review-count">(${stats.count})</span></div>
+                            <div class="product-price">${item.price}.-</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // แสดง Modal
+            modal.style.display = 'block';
+        }
+
+        // ปิด Modal หมวดหมู่
+        function closeCategoryModal() {
+            document.getElementById('categoryModal').style.display = 'none';
+        }
+
+        // --- จัดการหน้ารายละเอียดสินค้า ---
+
+        // เปิดหน้ารายละเอียดสินค้า (เมื่อคลิกที่การ์ด)
+        function openProductDetail(productId, categoryName) {
+            const listContainer = document.getElementById('product-list-container');
+            const detailView = document.getElementById('product-detail-view');
+            
+            // หาข้อมูลสินค้าจาก ID
+            const items = menuData[categoryName];
+            const product = items.find(p => p.id === productId);
+
+            if (!product) return;
+            currentSelectedProduct = product;
+
+            // สลับวิว: ซ่อนรายการ -> โชว์รายละเอียด
+            listContainer.style.display = 'none';
+            detailView.style.display = 'block';
+
+            // เติมข้อมูลลงในหน้าจอ
+            document.getElementById('detail-name').innerText = product.name;
+            document.getElementById('detail-price').innerText = product.price + '.-';
+            document.getElementById('detail-img').src = product.img;
+            
+            // ผูกฟังก์ชันปุ่ม "เพิ่มลงตะกร้า"
+            const btn = document.getElementById('add-to-cart-btn');
+            btn.onclick = () => addToCart(product.name, product.price);
+
+            // โหลดรีวิว
+            renderReviews(productId);
+            resetReviewForm();
+        }
+
+        // ปุ่มย้อนกลับไปหน้ารายการ
+        function backToProductList() {
+            document.getElementById('product-list-container').style.display = 'grid';
+            document.getElementById('product-detail-view').style.display = 'none';
+        }
+
+        // --- ระบบรีวิว (Review System) ---
+
+        // คำนวณคะแนนเฉลี่ย
+        function calculateRating(productId) {
+            const productReviews = reviews[productId] || [];
+            if (productReviews.length === 0) return { average: 0, count: 0 };
+            
+            const sum = productReviews.reduce((a, b) => a + b.rating, 0);
+            return {
+                average: (sum / productReviews.length).toFixed(1),
+                count: productReviews.length
+            };
+        }
+
+        // สร้าง HTML รูปดาว (เต็ม, ครึ่ง, ว่าง)
+        function generateStarHtml(rating) {
+            let html = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    html += '<i class="fas fa-star"></i>'; // ดาวเต็ม
+                } else if (i - 0.5 <= rating) {
+                    html += '<i class="fas fa-star-half-alt"></i>'; // ดาวครึ่ง
+                } else {
+                    html += '<i class="far fa-star"></i>'; // ดาวว่าง
+                }
+            }
+            return html;
+        }
+
+        // แสดงรายการรีวิว
+        function renderReviews(productId) {
+            const container = document.getElementById('reviews-container');
+            const stats = calculateRating(productId);
+            
+            // อัปเดตดาวรวมด้านบน
+            document.getElementById('detail-stars').innerHTML = 
+                `${generateStarHtml(stats.average)} <span style="color:#666;">(${stats.average}/5 จาก ${stats.count} รีวิว)</span>`;
+
+            container.innerHTML = '';
+            const productReviews = reviews[productId] || [];
+
+            if (productReviews.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#999; margin-top:20px;">ยังไม่มีรีวิว เป็นคนแรกที่รีวิวเมนูนี้สิครับ!</p>';
+                return;
+            }
+
+            // เรียงรีวิวใหม่สุดขึ้นก่อน
+            [...productReviews].reverse().forEach(r => {
+                container.innerHTML += `
+                    <div class="review-item">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span style="font-weight:bold; color:var(--secondary-color);">${r.user}</span>
+                            <span style="color:var(--star-color);">${generateStarHtml(r.rating)}</span>
+                        </div>
+                        <p style="color:#555;">${r.text}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // เลือกดาวในฟอร์มรีวิว
+        function setRating(val) {
+            document.getElementById('rating-value').value = val;
+            const stars = document.querySelectorAll('#star-input-group i');
+            stars.forEach((star, index) => {
+                if (index < val) {
+                    star.style.color = 'var(--star-color)';
+                    star.classList.add('active');
+                } else {
+                    star.style.color = '#ddd';
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        // ส่งรีวิว
+        function submitReview() {
+            const rating = parseInt(document.getElementById('rating-value').value);
+            const text = document.getElementById('review-comment').value;
+            const name = document.getElementById('review-name').value || 'ลูกค้าทั่วไป';
+
+            if (rating === 0) {
+                alert('กรุณากดให้ดาวก่อนส่งรีวิวครับ');
+                return;
+            }
+
+            // สร้างอาร์เรย์รีวิวถ้ายังไม่มี
+            if (!reviews[currentSelectedProduct.id]) {
+                reviews[currentSelectedProduct.id] = [];
+            }
+
+            // บันทึกรีวิวใหม่
+            reviews[currentSelectedProduct.id].push({
+                user: name,
+                rating: rating,
+                text: text
+            });
+
+            // บันทึกลง LocalStorage
+            localStorage.setItem('shopReviews', JSON.stringify(reviews));
+            
+            // รีเฟรชหน้า
+            renderReviews(currentSelectedProduct.id);
+            resetReviewForm();
+            alert('ขอบคุณสำหรับรีวิวครับ!');
+        }
+
+        // ล้างฟอร์มรีวิว
+        function resetReviewForm() {
+            document.getElementById('rating-value').value = 0;
+            document.getElementById('review-comment').value = '';
+            document.getElementById('review-name').value = '';
+            setRating(0); // รีเซตดาว
+        }
+
+        // --- ระบบตะกร้าสินค้า (Cart System) ---
+
+        // เพิ่มสินค้าลงตะกร้า
+        function addToCart(name, price) {
             cart.push({ name, price });
             updateCartCount();
             
-            // Animation Feedback
-            const originalText = btnElement.innerText;
-            btnElement.innerText = "✓ เพิ่มแล้ว";
-            btnElement.style.background = "#4caf50";
+            // เอฟเฟกต์แจ้งเตือนเล็กๆ แทน alert
+            const btn = document.getElementById('add-to-cart-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> เพิ่มแล้ว';
+            btn.style.background = '#4caf50'; // สีเขียวชั่วคราว
+            
             setTimeout(() => {
-                btnElement.innerText = originalText;
-                btnElement.style.background = ""; 
-            }, 1000);
+                btn.innerHTML = originalText;
+                btn.style.background = ''; // กลับเป็นสีเดิม (Gradient)
+            }, 1500);
         }
 
+        // อัปเดตตัวเลขจำนวนสินค้าที่ปุ่มลอย
         function updateCartCount() {
             document.getElementById('cart-count').innerText = cart.length;
         }
 
-        function openModal() {
+        // เปิด Modal ตะกร้า
+        function openCartModal() {
             const modal = document.getElementById('cartModal');
             const itemsContainer = document.getElementById('order-items');
             const totalElement = document.getElementById('total-price');
@@ -36,9 +328,9 @@ let cart = [];
             cart.forEach((item, index) => {
                 total += item.price;
                 itemsContainer.innerHTML += `
-                    <div class="cart-item">
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
                         <span>${index + 1}. ${item.name}</span>
-                        <span>${item.price}.-</span>
+                        <span style="font-weight:bold;">${item.price}.-</span>
                     </div>
                 `;
             });
@@ -46,49 +338,36 @@ let cart = [];
             totalElement.innerText = total;
         }
 
-        function closeModal() {
+        // ปิด Modal ตะกร้า
+        function closeCartModal() {
             document.getElementById('cartModal').style.display = 'none';
         }
 
+        // ยืนยันการสั่งซื้อ
         function confirmOrder() {
-            if (cart.length === 0) {
-                alert('กรุณาเลือกสินค้าก่อนยืนยัน');
-                return;
-            }
-            alert(`ขอบคุณสำหรับการสั่งซื้อ! ยอดรวมทั้งหมด ${document.getElementById('total-price').innerText} บาท\nพนักงานจะไปเสิร์ฟที่โต๊ะสักครู่`);
-            cart = [];
+            if (cart.length === 0) return;
+            alert(`ขอบคุณสำหรับการสั่งซื้อ! ยอดรวม ${document.getElementById('total-price').innerText} บาท \nพนักงานกำลังจัดเตรียมอาหารครับ`);
+            cart = []; // ล้างตะกร้า
             updateCartCount();
-            closeModal();
+            closeCartModal();
         }
 
+        // ปิด Modal เมื่อคลิกพื้นที่ว่างๆ ด้านนอก
         window.onclick = function(event) {
-            const modal = document.getElementById('cartModal');
-            if (event.target == modal) {
-                closeModal();
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
             }
         }
 
-        // --- Smooth Scrolling ---
-        function scrollToMenu() {
-            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // --- Reveal Animation ---
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
+        // เอฟเฟกต์เลื่อนหน้าจอแล้วค่อยๆ ปรากฏ (Scroll Reveal)
+        window.addEventListener('scroll', () => {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
-                var windowheight = window.innerHeight;
-                var revealtop = reveals[i].getBoundingClientRect().top;
-                var revealpoint = 150;
-
-                if (revealtop < windowheight - revealpoint) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add('active');
-                } else {
-                    reveals[i].classList.remove('active');
                 }
             }
-        }
-        
-        reveal();
+        });

@@ -5,30 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Old Town Ayutthaya</title>
 
+<!-- ไอคอน Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ฟอนต์สารบัญ (Sarabun) เพื่อความเป็นไทย -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
-    <!-- ตะกร้าสินค้าแบบลอย -->
-    <div class="cart-float" onclick="openModal()">
-        <span>🛒</span> ตะกร้าสินค้า (<span id="cart-count">0</span>)
+  <!-- ปุ่มตะกร้าลอย (Float Button) -->
+    <div class="cart-float" onclick="openCartModal()">
+        <i class="fas fa-shopping-basket"></i> ตะกร้า (<span id="cart-count">0</span>)
     </div>
 
-    <!-- Top Bar -->
+    <!-- Top Bar (ข้อมูลติดต่อเบื้องต้น) -->
     <div class="top-bar">
         <div class="container top-bar-content">
             <p>ยินดีต้อนรับสู่ The Old Town Ayutthaya</p>
-            <div>📞 080-984-XXXX</div>
+            <div><i class="fas fa-phone"></i> 080-984-XXXX</div>
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation (เมนูหลัก) -->
     <nav class="main-menu">
         <div class="container nav-container">
             <a href="#" class="logo-link">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="var(--primary-color)">
-                    <path d="M2 21h18v-2H2M20 8h-2V5h2m0-2H4v10a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-3h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
-                </svg>
+                <i class="fas fa-mug-hot" style="font-size: 24px; color: var(--primary-color);"></i>
                 <div class="logo-text">AYUTTHAYA COFFEE</div>
             </a>
             <ul class="menu-class">
@@ -37,64 +41,67 @@
                 <li><a href="#about" class="menu-link">ประวัติร้าน</a></li>
                 <li><a href="#gallery" class="menu-link">บรรยากาศ</a></li>
                 <li><a href="#contact" class="menu-link">ติดต่อเรา</a></li>
-                
             </ul>
         </div>
     </nav>
-    <!-- Hero Section -->
+
+    <!-- Hero Section (ภาพปก) -->
     <header class="hero">
         <div class="container">
             <div class="hero-text reveal">
                 <h1>ความรื่นรมย์ <br> แห่งเมืองเก่า</h1>
-                <p>สัมผัสรสชาติกาแฟแท้ ในบรรยากาศบ้านสวนอยุธยาที่เงียบสงบและเป็นกันเอง</p>
-                <button onclick="scrollToMenu()" class="btn-hero">เริ่มสั่งอาหาร</button>
+                <p>สัมผัสรสชาติกาแฟแท้ ในบรรยากาศบ้านสวนอยุธยาที่เงียบสงบ</p>
+                <button onclick="scrollToMenu()" class="btn-hero">
+                    <i class="fas fa-utensils"></i> เริ่มสั่งอาหาร
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Menu Section -->
-    <section class="menu-section">
-        <section id="menu" class="menu-section"></section>
-        <h2 class="section-title">Our Menu</h2>
-        <div class="section-content">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <img src="/img/ลาเต้1.png" alt="Coffee" class="menu-images">
+    <!-- Menu Categories Section (หมวดหมู่เมนู) -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">เมนูของเรา</h2>
+            <p class="section-subtitle">คัดสรรวัตถุดิบคุณภาพ เพื่อรสชาติที่ดีที่สุด</p>
+            
+            <div class="menu-list">
+                <!-- 1. กาแฟ -->
+                <div class="menu-item" onclick="openCategoryModal('Coffee')">
+                    <img src="img/ลาเต้1.png" alt="Coffee" class="menu-images">
                     <h3 class="name">Coffee</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-                <li class="menu-item">
-                    <img src="/img/น้ำปั่น.png" alt="Smoothies" class="menu-images">
+                    <p class="text">กาแฟคั่วบดหอมกรุ่น หลากหลายสไตล์</p>
+                </div>
+                <!-- 2. สมูทตี้ -->
+                <div class="menu-item" onclick="openCategoryModal('Smoothies')">
+                    <img src="img/น้ำปั่น.png" alt="Smoothies" class="menu-images">
                     <h3 class="name">Smoothies</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-                <li class="menu-item">
-                    <img src="/img/Cake.png" alt="Cake" class="menu-images">
+                    <p class="text">ผลไม้ปั่นสดชื่น ดับกระหายคลายร้อน</p>
+                </div>
+                <!-- 3. เค้ก -->
+                <div class="menu-item" onclick="openCategoryModal('Cake')">
+                    <img src="img/Cake.png" alt="Cake" class="menu-images">
                     <h3 class="name">Cake</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-                <li class="menu-item">
-                    <img src="/img/ชาไทย.png" alt="Non-Coffee Drinks" class="menu-images">
+                    <p class="text">เค้กโฮมเมด เนื้อนุ่ม หวานกำลังดี</p>
+                </div>
+                <!-- 4. เครื่องดื่มอื่นๆ -->
+                <div class="menu-item" onclick="openCategoryModal('Non-Coffee Drinks')">
+                    <img src="img/ชาไทย.png" alt="Non-Coffee" class="menu-images">
                     <h3 class="name">Non-Coffee Drinks</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-                <li class="menu-item">
-                    <img src="/img/ครัวซอง.png" alt="Bakery" class="menu-images">
+                    <p class="text">ชาไทย ชาเขียว โกโก้ และอื่นๆ</p>
+                </div>
+                <!-- 5. เบเกอรี่ -->
+                <div class="menu-item" onclick="openCategoryModal('Bakery')">
+                    <img src="img/ครัวซอง.png" alt="Bakery" class="menu-images">
                     <h3 class="name">Bakery</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-                <li class="menu-item">
-                    <img src="/img/แฮมเบอร์เกอร์.png" alt="Snacks" class="menu-images">
+                    <p class="text">ขนมอบสดใหม่ ครัวซองต์ โทสต์</p>
+                </div>
+                <!-- 6. ของทานเล่น -->
+                <div class="menu-item" onclick="openCategoryModal('Snacks')">
+                    <img src="img/แฮมเบอร์เกอร์.png" alt="Snacks" class="menu-images">
                     <h3 class="name">Snacks</h3>
-                    <p class="text">สามารถเข้าไปดูราคา และ การรีวิว ของลูกค้าท่านอื่นได้นะครับ 
-                    และ คุณสามารถลงความคิดเห็นและให้คะแนนได้นะครับ และ สามารถให้ดาวได้นะครับ</p>
-                </li>
-            </ul>
+                    <p class="text">ของว่างทานเล่น เพลิดเพลินทุกคำ</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -103,13 +110,15 @@
         <div class="container">
             <div class="about-container reveal">
                 <div class="about-image">
-                    <img src="./img/Cafe1.avif" alt="เกี่ยวกับร้าน">
+                    <img src="img/Cafe1.avif" alt="เกี่ยวกับร้าน">
                 </div>
                 <div class="about-text">
                     <h2 class="about-title">เรื่องราวของเรา</h2>
-                    <p class="about-desc">ณ ใจกลางเมืองเก่าอยุธยา เราเริ่มต้นจากความหลงใหลในเมล็ดกาแฟและความรักในศิลปะวัฒนธรรมไทยเดิม ร้านของเราไม่ได้เป็นเพียงแค่ร้านกาแฟ แต่เป็นพื้นที่แห่งการพักผ่อนที่ผสมผสานกลิ่นอายประวัติศาสตร์เข้ากับรสชาติสมัยใหม่</p>
-                    <p class="about-desc">ทุกแก้วที่เราเสิร์ฟ คือความตั้งใจที่จะมอบประสบการณ์ที่ดีที่สุดให้กับคุณ ท่ามกลางบรรยากาศสวนร่มรื่นที่จะทำให้คุณลืมความวุ่นวายของโลกภายนอก</p>
+                    <p class="about-desc">ณ ใจกลางเมืองเก่าอยุธยา เราเริ่มต้นจากความหลงใหลในเมล็ดกาแฟและความรักในศิลปะวัฒนธรรมไทยเดิม</p>
+                    <p class="about-desc">ทุกแก้วที่เราเสิร์ฟ คือความตั้งใจที่จะมอบประสบการณ์ที่ดีที่สุดให้กับคุณ พร้อมระบบรีวิวที่คุณสามารถแบ่งปันความประทับใจได้</p>
                 </div>
+            </div>
+        </div>
     </section>
 
     <!-- Creators Section -->
@@ -117,29 +126,23 @@
         <div class="container reveal">
             <h2 class="section-title">คณะผู้จัดทำ</h2>
             <p class="section-subtitle">เบื้องหลังความอร่อยและการบริการ</p>
-
             <div class="creators-wrapper">
-                <!-- 1. Support -->
                 <div class="creator-card">
-                    <img src="./img/Rew.img.jpg" alt="ผู้ช่วย" class="creator-img">
+                    <img src="img/Rew.img.jpg" alt="ผู้ช่วย" class="creator-img">
                     <span class="role-badge assist">ผู้ช่วยที่ดี</span>
-                    <h3>ชื่อ-นาย ชญานินทร์ บำรุงเขต</h3>
+                    <h3>นาย ชญานินทร์ บำรุงเขต</h3>
                     <p style="color:#777; font-size:0.9rem;">ฝ่ายสนับสนุน</p>
                 </div>
-
-                <!-- 2. Main Creator -->
                 <div class="creator-card main">
-                    <img src="./img/Top.img.jpg" alt="ผู้จัดทำ" class="creator-img">
+                    <img src="img/Top.img.jpg" alt="ผู้จัดทำ" class="creator-img">
                     <span class="role-badge main">ผู้จัดทำ</span>
-                    <h3>ชื่อ-นาย วรพงษ์ พิมพ์ทรัพย์</h3>
+                    <h3>นาย วรพงษ์ พิมพ์ทรัพย์</h3>
                     <p style="color:#777; font-size:0.9rem;">Project Manager</p>
                 </div>
-
-                <!-- 3. Support -->
                 <div class="creator-card">
-                    <img src="./img/Pram.img.jpg" alt="ผู้ช่วย" class="creator-img">
+                    <img src="img/Pram.img.jpg" alt="ผู้ช่วย" class="creator-img">
                     <span class="role-badge assist">ผู้ช่วยที่ดี</span>
-                    <h3>ชื่อ-นาย สิทธิโชค จันทร์แก้ว</h3>
+                    <h3>นาย สิทธิโชค จันทร์แก้ว</h3>
                     <p style="color:#777; font-size:0.9rem;">ฝ่ายสนับสนุน</p>
                 </div>
             </div>
@@ -149,135 +152,199 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section">
         <div class="container reveal">
-            <div class="section-header">
+            <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">บรรยากาศร้าน</h2>
                 <p class="section-subtitle">มุมพักผ่อนสบายๆ สไตล์ Ayutthaya Old Town</p>
             </div>
-            
             <div class="gallery-grid">
-                <!-- รูปที่ 1 -->
                 <div class="gallery-item">
-                    <img src="./img/Coffee1.avif" alt="Atmosphere 1">
+                    <div class="gallery-item-inner">
+                        <img src="img/Atmosphere 1.avif" alt="Atmosphere">
+                    </div>
                 </div>
-                <!-- รูปที่ 2 -->
                 <div class="gallery-item">
-                    <img src="./img/Coffee2.avif" alt="Atmosphere 2">
+                    <div class="gallery-item-inner">
+                        <img src="img/Atmosphere 2.avif" alt="Atmosphere">
+                    </div>
                 </div>
-                <!-- รูปที่ 3 -->
                 <div class="gallery-item">
-                    <img src="./img/Coffee3.avif" alt="Atmosphere 3">
-                    
+                    <div class="gallery-item-inner">
+                        <img src="img/Atmosphere 3.avif" alt="Atmosphere">
+                    </div>
                 </div>
-                <!-- รูปที่ 4 -->
                 <div class="gallery-item">
-                    <img src="./img/Atmosphere 1.avif" alt="Atmosphere 4">
+                    <div class="gallery-item-inner">
+                        <img src="img/cool2.avif" alt="Atmosphere">
+                    </div>
                 </div>
-                <!-- รูปที่ 5 -->
                 <div class="gallery-item">
-                    <img src="./img/Atmosphere 2.avif" alt="Atmosphere 5">
+                    <div class="gallery-item-inner">
+                        <img src="img/cool3.avif" alt="Atmosphere">
+                    </div>
                 </div>
-                <!-- รูปที่ 6 -->
                 <div class="gallery-item">
-                    <img src="./img/Atmosphere 3.avif" alt="Atmosphere 6">
+                    <div class="gallery-item-inner">
+                        <img src="img/Coffee3.avif" alt="Atmosphere">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section (Improved Design) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container reveal">
-            <div class="section-header">
+            <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">ติดต่อเรา</h2>
                 <p class="section-subtitle">แวะมาเยี่ยมเยียนหรือสอบถามข้อมูลเพิ่มเติม</p>
             </div>
             <div class="contact-grid">
-                <!-- ข้อมูลติดต่อ (ในรูปแบบการ์ด) -->
                 <div class="contact-card">
                     <h3>ข้อมูลการติดต่อ</h3>
                     <div class="contact-detail">
-                        <div class="contact-icon-box">📍</div>
-                        <p>123 ถนนอู่ทอง ตำบลประตูชัย <br>อำเภอพระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000</p>
+                        <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <p>123 ถนนอู่ทอง ตำบลประตูชัย <br>อยุธยา 13000</p>
                     </div>
                     <div class="contact-detail">
-                        <div class="contact-icon-box">📞</div>
+                        <div class="contact-icon-box"><i class="fas fa-phone-alt"></i></div>
                         <p>080-984-XXXX</p>
                     </div>
                     <div class="contact-detail">
-                        <div class="contact-icon-box">💬</div>
+                        <div class="contact-icon-box"><i class="fab fa-line"></i></div>
                         <p>Line: @ayutthayacoffee</p>
                     </div>
-                    
                     <div class="map-box">
-                        <img src="./img/Googlemap.avif" alt="Map" class="map-placeholder">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; color: var(--secondary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                            Google Map
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=500&q=60" alt="Map" class="map-placeholder">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; color: var(--secondary-color);">Google Map</div>
                     </div>
                 </div>
-
-                <!-- แบบฟอร์มติดต่อ (ในรูปแบบการ์ด) -->
                 <div class="contact-card">
                     <h3>ส่งข้อความถึงเรา</h3>
                     <form onsubmit="event.preventDefault(); alert('ขอบคุณสำหรับข้อความ เราจะติดต่อกลับโดยเร็วที่สุด');">
-                        <div class="form-group">
-                            <input type="text" placeholder="ชื่อของคุณ" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="เบอร์โทรศัพท์" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="5" placeholder="ข้อความที่ต้องการฝากถึงเรา" class="form-input"></textarea>
-                        </div>
-                        <button type="submit" class="btn-add" style="width:100%; font-size: 1.1rem; padding: 15px;">ส่งข้อความ</button>
+                        <input type="text" placeholder="ชื่อของคุณ" required class="form-input">
+                        <input type="tel" placeholder="เบอร์โทรศัพท์" required class="form-input">
+                        <textarea rows="5" placeholder="ข้อความฝากถึงเรา" class="form-input"></textarea>
+                        <button type="submit" class="btn-hero" style="width:100%; padding: 15px;">ส่งข้อความ</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section (Restored) -->
+    <!-- Showcase -->
     <div class="photo-showcase reveal">
-        <div class="photo-item"><img src="./img/Coffee1.avif"></div>
-        <div class="photo-item"><img src="./img/Coffee2.avif"></div>
-        <div class="photo-item"><img src="./img/Coffee3.avif"></div>
+        <div class="photo-item"><img src="img/Cafe2.avif"></div>
+        <div class="photo-item"><img src="img/photo2.avif"></div>
+        <div class="photo-item"><img src="img/มอคค่า.jpg"></div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
             <div>
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Ayutthaya Coffee</h3>
-                <p style="opacity: 0.7; font-size: 0.9rem;">ผสมผสานความร่วมสมัยและประวัติศาสตร์</p>
+                <h3 style="color: var(--primary-color);">Ayutthaya Coffee</h3>
+                <p style="opacity: 0.7;">ผสมผสานความร่วมสมัยและประวัติศาสตร์</p>
             </div>
             <div>
-                <h4 style="color: var(--primary-color); margin-bottom: 15px;">เวลาเปิดทำการ</h4>
-                <p style="opacity: 0.7; font-size: 0.9rem;">📍 พระนครศรีอยุธยา<br>🕒 08:30 - 18:00 น.</p>
+                <h4>เวลาเปิดทำการ</h4>
+                <p style="opacity: 0.7;">📍 พระนครศรีอยุธยา<br>🕒 08:30 - 18:00 น.</p>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 50px; opacity: 0.3; font-size: 0.75rem;">&copy; 2024 Ayutthaya Coffee Shop.</p>
+        <p style="text-align: center; margin-top: 50px; opacity: 0.3;">&copy; 2024 Ayutthaya Coffee Shop.</p>
     </footer>
 
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
+    <!-- ================= MODALS (หน้าต่างป๊อปอัพ) ================= -->
+
+    <!-- 1. หน้าต่างเลือกสินค้า (Category Modal) -->
+    <div id="categoryModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 style="text-align: center; margin-bottom: 20px; color: var(--secondary-color);">รายการสั่งซื้อ</h2>
-            <div id="order-items">
-                <p style="text-align: center; color: #999;">ยังไม่มีสินค้าในตะกร้า</p>
+            <!-- ปุ่มปิดมุมขวาบน -->
+            <span class="close-btn" onclick="closeCategoryModal()">&times;</span>
+            
+            <div class="category-header">
+                <h2 id="modal-category-title" class="category-title">หมวดหมู่</h2>
+                <p style="color: #666; font-style: italic;">เลือกเมนูที่ถูกใจ เพื่ออ่านรีวิวหรือสั่งซื้อ</p>
             </div>
-            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
-                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
-                    <span>รวมทั้งหมด:</span>
-                    <span><span id="total-price">0</span>.-</span>
+            
+            <!-- พื้นที่แสดงรายการสินค้า -->
+            <div id="product-list-container" class="product-list"></div>
+
+            <!-- พื้นที่แสดงรายละเอียดสินค้า (ซ่อนอยู่ตอนแรก) -->
+            <div id="product-detail-view" style="display: none;">
+                <button onclick="backToProductList()" style="margin-bottom: 20px; background:none; border:none; cursor:pointer; color: var(--primary-color); font-size: 1.1rem; display: flex; align-items: center; gap: 5px;">
+                    <i class="fas fa-arrow-left"></i> ย้อนกลับไปเมนู
+                </button>
+                
+                <div class="detail-layout">
+                    <div class="detail-img-box">
+                        <img id="detail-img" src="" alt="Product">
+                    </div>
+                    <div class="detail-info-box">
+                        <h2 id="detail-name" style="color: var(--secondary-color); font-size: 2.2rem; font-weight: 800;">Product Name</h2>
+                        <h3 id="detail-price" style="color: var(--primary-color); font-size: 2rem;">0.-</h3>
+                        <div id="detail-stars" class="stars-display" style="font-size: 1.2rem; margin: 15px 0;"></div>
+                        
+                        <div style="margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 25px;">
+                            <button id="add-to-cart-btn" class="btn-hero" style="width: 100%; border-radius: 15px; margin-top:0;">
+                                <i class="fas fa-cart-plus"></i> เพิ่มลงตะกร้า
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <button onclick="confirmOrder()" style="width: 100%; padding: 15px; background: var(--secondary-color); color: white; border: none; border-radius: 10px; margin-top: 20px; cursor: pointer; font-weight: bold;">ยืนยันการสั่งซื้อ</button>
+
+                <div class="review-section">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 20px; font-size: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                        <i class="fas fa-comments"></i> รีวิวจากลูกค้า
+                    </h3>
+                    
+                    <!-- ฟอร์มเขียนรีวิว -->
+                    <div class="review-form" style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e0cdae; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 15px; font-size: 1.2rem;">เขียนรีวิวของคุณ</h4>
+                        <div class="star-input" id="star-input-group" style="font-size: 2rem; color: #ddd; cursor: pointer; margin-bottom: 20px;">
+                            <!-- เปลี่ยนเป็นดาวทึบ (fas) ทั้งหมด แต่ใช้ CSS ควบคุมสี -->
+                            <i class="fas fa-star" onclick="setRating(1)"></i>
+                            <i class="fas fa-star" onclick="setRating(2)"></i>
+                            <i class="fas fa-star" onclick="setRating(3)"></i>
+                            <i class="fas fa-star" onclick="setRating(4)"></i>
+                            <i class="fas fa-star" onclick="setRating(5)"></i>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0">
+                        <input type="text" id="review-name" class="form-input" style="width:100%; margin-bottom:15px;" placeholder="ชื่อของคุณ (เช่น พี่สมชาย สายกิน)">
+                        <textarea id="review-comment" rows="3" class="form-input" style="width:100%; margin-bottom:20px;" placeholder="รสชาติเป็นอย่างไรบ้าง? เล่าให้เราฟังหน่อย..."></textarea>
+                        <button onclick="submitReview()" class="btn-add-review">โพสต์รีวิว</button>
+                    </div>
+
+                    <!-- รายการรีวิวที่มีอยู่ -->
+                    <div id="reviews-container" class="review-list"></div>
+                </div>
             </div>
         </div>
     </div>
 
-    
+    <!-- 2. หน้าต่างตะกร้าสินค้า (Cart Modal) -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close-btn" onclick="closeCartModal()">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 25px; color: var(--secondary-color);">
+                <i class="fas fa-clipboard-list"></i> รายการที่สั่ง
+            </h2>
+            
+            <div id="order-items" style="max-height: 300px; overflow-y: auto;">
+                <p style="text-align: center; color: #999; font-style: italic;">ยังไม่มีสินค้าในตะกร้า</p>
+            </div>
+            
+            <div style="margin-top: 25px; border-top: 2px dashed #ddd; padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.3rem; color: var(--secondary-color);">
+                    <span>ยอดรวมสุทธิ:</span>
+                    <span style="color: var(--primary-color);"><span id="total-price">0</span> บาท</span>
+                </div>
+                <button onclick="confirmOrder()" class="btn-hero" style="width: 100%; margin-top: 20px; border-radius: 15px;">
+                    ยืนยันการสั่งซื้อ
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
